@@ -2,7 +2,10 @@
     "name": "@ab.js/log",
     "version": "0.1.0",
     "description": "PHP's beautifully simple, standards-rooted PSR-3 logging interface ported to Typescript and JS.",
-    "main": "src/Logger.js",
+    "main": "dist/lib/Logger.js",
+    "scripts": {
+        "build": "tsc"
+    },
     "homepage": "https://github.com/ab-js/log",
     "repository": {
         "type": "git",
@@ -19,9 +22,6 @@
         }
     ],
     "license": "MIT",
-    "scripts": {
-        "build": "tsc"
-    },
     "keywords": [
         "log",
         "logger",
@@ -39,6 +39,7 @@
         "typescript": "^3.8.3"
     },
     "dependencies": {
-        "@types/events": "^3.0.0"
+        "@types/events": "^3.0.0",
+        "@types/node": "^13.13.4"
     }
 }
