@@ -22,6 +22,11 @@ phpunit.xml
 /.project
 /.php_cs.cache
 
+#
+# Javascript & Typescript Development
+#
+/yarn-error.log
+
 # # # # # # # # # #
 ## IDE Specific
 # # # # # # # # # #
