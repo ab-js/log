@@ -7,10 +7,16 @@ import { logContext, logLevelValue, logMessage } from "../Logger";
  */
 export abstract class ProxyingLogger extends AbstractLogger
 {
-    _upstream: LoggerInterface;
+    _downstream: LoggerInterface;
+
+    constructor(downstreamLogger: LoggerInterface)
+    {
+        super();
+        this._downstream = downstreamLogger;
+    }
 
     public log(level: logLevelValue, message: logMessage, context: logContext): any
     {
-        this._upstream.log(level,  message,  context);
+        this._downstream.log(level,  message,  context);
     }
 }

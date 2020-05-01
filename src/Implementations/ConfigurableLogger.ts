@@ -12,7 +12,7 @@ type logMessageFilterCallback = (level: any, message: logMessage, context: logCo
  */
 export class ConfigurableLogger extends AbstractLogger
 {
-    downstreamLoggers: Array<[LoggerInterface, logMessageFilterCallback]> = new Array<[LoggerInterface, logMessageFilterCallback]>;
+    downstreamLoggers: Array<[LoggerInterface, logMessageFilterCallback]> = new Array();
 
     logLevel(downstream: LoggerInterface, forLevel: logLevelValue)
     {
@@ -31,7 +31,7 @@ export class ConfigurableLogger extends AbstractLogger
         this.downstreamLoggers.push([
             downstream,
             (_, message: logMessage) => {
-                return matches.test(logMessage);
+                return matches.test(message);
             }
         ]);
     }
@@ -47,8 +47,8 @@ export class ConfigurableLogger extends AbstractLogger
     public log(level: any, message: logMessage, context: logContext): void
     {
         for (let [upstreamLogger, condition] of this.downstreamLoggers) {
-            if (condition(level,  logMessage, logContext)) {
-                upstreamLogger.log(level,  logMessage, logContext);
+            if (condition(level,  message, context)) {
+                upstreamLogger.log(level,  message, context);
             }
         }
     }

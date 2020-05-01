@@ -16,7 +16,7 @@ import * as process from 'child_process';
  */
 export class ConsoleLogger extends AbstractLogger
 {
-    ttyDevice: (number | null);
+    ttyDevice: (number | null) = null;
 
     constructor(ttyDevicePath: (string | null) = null)
     {

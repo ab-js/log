@@ -10,3 +10,8 @@ export * from "./AbstractLogger";
 export * from "./LoggerAwareInterface";
 export * from "./InvalidArgumentException";
 export * from "./NullLogger";
+
+export * from "./Implementations/ConsoleLogger";
+export * from "./Implementations/ProxyingLogger";
+export * from "./Implementations/ConfigurableLogger";
+
